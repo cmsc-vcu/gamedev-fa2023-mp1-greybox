@@ -1,4 +1,4 @@
-# gamedev-fa2023-mp1
+# gamedev-fa2023-mp1-Mr. Kiwi
 CMSC391/COAR463 Game Development - Minor Project 1
 
 Great job on creating your own copy of the minor project 1 scaffold!
