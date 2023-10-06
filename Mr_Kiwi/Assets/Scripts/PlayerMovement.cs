@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
+    [SerializeField] private float doubleJumpForce = 10f;
 
-    private enum MovementState { idle, running, jumping, falling }
+    private enum MovementState { idle, running, jumping, falling, doublejump}
 
     [SerializeField] private AudioSource jumpSoundEffect;
+
+    private int jumpCounter = 1;
 
     // Start is called before the first frame update
     private void Start()
@@ -38,6 +41,17 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        else if (Input.GetButtonDown("Jump") && jumpCounter == 1)
+        {
+            jumpSoundEffect.Play();
+            rb.velocity = new Vector2(rb.velocity.x, doubleJumpForce);
+            jumpCounter = jumpCounter - 1;
+        }
+
+        if (IsGrounded())
+        {
+            jumpCounter = 1;
         }
 
         UpdateAnimationState();
@@ -62,9 +76,13 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.idle;
         }
 
-        if (rb.velocity.y > .1f)
+        if (rb.velocity.y > .1f && jumpCounter == 1)
         {
             state = MovementState.jumping;
+        }
+        else if (rb.velocity.y > .1f)
+        {
+            state = MovementState.doublejump;
         }
         else if (rb.velocity.y < -.1f)
         {
