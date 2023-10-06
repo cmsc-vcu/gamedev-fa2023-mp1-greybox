@@ -6,6 +6,6 @@ It is a 2D platformer where your goal is to collect kiwis and get to the trophy!
 
 Our major changes so far are:
 - a moving background
-- double jump ability with animation
+- player can now double jump with an animation
 
 ~ Kealey and Holly
