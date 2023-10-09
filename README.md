@@ -1,5 +1,6 @@
 # Mr. Kiwi
 CMSC391/COAR463 Game Development - Minor Project 1
+Unity Play Link: https://play.unity.com/mg/other/webgl-builds-372370
 
 This is our game!
 It is a 2D platformer where your goal is to collect kiwis and get to the trophy!
